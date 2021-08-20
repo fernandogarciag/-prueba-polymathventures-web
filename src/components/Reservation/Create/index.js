@@ -32,7 +32,6 @@ const Create = ({ history }) => {
     ReservationService.getAll()
       .then((response) => {
         setReservationList(response.data);
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -43,10 +42,6 @@ const Create = ({ history }) => {
     RestaurantService.getAll()
       .then((response) => {
         setRestaurantList(response.data);
-        setReservation({
-          ...reservation,
-          restaurantId: `${response.data[0].id}`,
-        });
       })
       .catch((e) => {
         console.log(e);

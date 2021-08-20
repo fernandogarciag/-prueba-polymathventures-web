@@ -31,6 +31,7 @@ const Container = ({
               onChange={handleInputChange}
               required
             >
+              <option>Escoger el restaurante</option>
               {restaurantList.map((restaurant, index) => (
                 <option key={index} value={restaurant.id}>
                   {restaurant.name}
