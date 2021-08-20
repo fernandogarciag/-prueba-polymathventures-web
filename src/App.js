@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
-function App() {
+import RestaurantIndex from "./components/Restaurant/Index";
+import RestaurantCreate from "./components/Restaurant/Create-Edit/Create";
+import RestaurantShow from "./components/Restaurant/Show";
+import RestaurantEdit from "./components/Restaurant/Create-Edit/Edit";
+import ReservationIndex from "./components/Reservation/Index";
+import ReservationCreate from "./components/Reservation/Create";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path={["/", "/restaurants"]} component={RestaurantIndex} />
+      <Route exact path="/restaurants/create" component={RestaurantCreate} />
+      <Route exact path="/restaurants/:id" component={RestaurantShow} />
+      <Route exact path="/restaurants/:id/edit" component={RestaurantEdit} />
+      <Route exact path="/reservations" component={ReservationIndex} />
+      <Route exact path="/reservations/create" component={ReservationCreate} />
+    </Switch>
   );
-}
+};
 
 export default App;
