@@ -10,9 +10,10 @@ const Create = ({ history }) => {
   document.title = pageTitle;
 
   const f = new Date();
-  const today = `${f.getFullYear()}-${
-    f.getMonth() < 9 ? `0${f.getMonth() + 1}` : f.getMonth() + 1
-  }-${f.getDate()}`;
+  const año = `${f.getFullYear()}`;
+  const mes = `${f.getMonth() < 9 ? `0${f.getMonth() + 1}` : f.getMonth() + 1}`;
+  const dia = `${f.getDate() < 10 ? `0${f.getDate()}` : f.getDate()}`;
+  const today = `${año}-${mes}-${dia}`;
 
   const initialReservationState = {
     day: today,
